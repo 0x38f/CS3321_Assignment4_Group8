@@ -21,8 +21,8 @@ private:
         string uName;
         string pWord;
         
-        cout << "Welcome to the DepoNet.";
-        cout << "Log in with your username and password";
+        cout << "Welcome to the DepoNet.\n";
+        cout << "Log in with your username and password\n";
         cout << "U: ";
         cin >> uName;
         cout << "P: ";

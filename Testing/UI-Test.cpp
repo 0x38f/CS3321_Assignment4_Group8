@@ -1,2 +1,9 @@
-#include "UserInterfaceClass.cpp"
+#include "Classes/UserInterfaceClass.cpp"
 
+int main () {
+
+    UserInterface UITest;
+
+    UITest.loginUI();
+
+}
