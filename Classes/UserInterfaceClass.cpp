@@ -28,18 +28,21 @@ private:
         cout << "P: ";
         cin >> pWord;
         
+        clearScreen();
+
     };
     
     //displays the menu options
     int uiOptions() {
         int option;
         
-        cout << "Please select an option";
-        cout << "\t1. Schedule a deposition";
-        cout << "\t2. Search for Deposition";
-        cout << "\t3. View Calendar";
-        cout << "\t4. Invoicing";
-        cout << "\t5. Request Assistance.";
+        cout << "Please select an option\n";
+        cout << "\t1. Schedule a deposition\n";
+        cout << "\t2. Search for Deposition\n";
+        cout << "\t3. View Calendar\n";
+        cout << "\t4. Invoicing\n";
+        cout << "\t5. Request Assistance.\n";
+        cout << "\nEnter Selection: ";
         cin >> option;
         
         return option;
@@ -49,6 +52,8 @@ private:
     //selects which ui to run depending on the option chose.
     void uiSelector(int selection) {
         
+        clearScreen();
+
         switch (selection) {
             case 1:
                 scheduleUI();
@@ -89,9 +94,9 @@ private:
         string depoState;
         
         cout << "Schedule your deposition here.\n\n";
-        cout << "Enter the Date of the deposition (MM/DD/YYYY): ";
+        cout << "Enter the Date of the deposition (MMDDYYYY): ";
         cin >> depoDate;
-        cout << "Enter the Time of the deposition (HH:MM:SS): ";
+        cout << "Enter the Time of the deposition (HHMMSS): ";
         cin >> depoTime;
         cout << "Enter the Name of the deposition: ";
         cin >> depoName;
@@ -124,7 +129,7 @@ private:
         Search firmDepos;
         UserData currentUser;
         
-        cout << "View Scheduled Depositions.";
+        cout << "View Scheduled Depositions.\n\n";
         
         firmDepos.searchResults(currentUser.getUserData);
         

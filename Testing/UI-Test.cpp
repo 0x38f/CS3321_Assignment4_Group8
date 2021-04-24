@@ -6,4 +6,6 @@ int main () {
 
     UITest.loginUI();
 
+    UITest.siteMenu();
+
 }
