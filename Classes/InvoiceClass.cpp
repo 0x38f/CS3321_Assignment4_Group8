@@ -1,18 +1,23 @@
 /* The Invoice Class is responsible for building the Invoice that is
 printed and sent to each Firm*/
+#include <string>
+#include <iostream>
+#include <iomanip>
+#include <DatabaseClass.cpp>
+#include <BillingClass.cpp>
+using namespace std;
 
 class Invoice {
 
-	Billing billing;
-	UserData userdata;
 
+private:
 
-	void printReport() {
-
-		void header() {
+		void top() {
+			UserData userdata;
+			string s;
 			cout << "\t\t\t        DEPOSITIONS & MORE    " << endl;
 			cout << "\t\t\t\t\t         INVOICE          " << endl;
-			cout << "\t\t\t " << userdata.getUserData()    << endl;
+			cout << "\t\t\t " << userdata.getUserStaff(s)    << endl;
 			cout << "\t\t\t"             << __TIME__       << endl;
 			cout << "\t\t\t"             << __DATE__       << endl;
 			cout << "\t  	       HOURS\t          STAFF" << endl;
@@ -21,12 +26,15 @@ class Invoice {
 		}
 
 		void build() {
-			for(int i = 0; i < billing.getHoursReserved; i++){
-			cout << "100\t " << billing.getHoursReserved() << "\t" << userdata.getStaffName() << "\n";
+			Billing billing;
+			UserData userdata;
+			float s, a, t;
+			for(int i = 0; i < 20; i++){
+			cout << "100\t " << billing.getHoursReserved() << "\t" << userdata.getUserStaff() << "\n";
 			}
-			cout << "\t\t\t\t\tSubtotal: " << billing.getSubtotal()    << endl;
-			cout << "\t\t\t\t\tTaxes: " << billing.getTaxes()          << endl;
-			cout << "\t\t\t\t\tTotal: " << billing.getTotal()          << endl;
+			cout << "\t\t\t\t\tSubtotal: " << billing.getSubtotal(s)    << endl;
+			cout << "\t\t\t\t\tTaxes: " << billing.getTaxes(a)          << endl;
+			cout << "\t\t\t\t\tTotal: " << billing.getTotal(t)          << endl;
 		}
 
 		void footer() {
@@ -41,14 +49,16 @@ class Invoice {
 	cout << "\t*******Refer a business and after their first scheduled deposition********* " 					     << endl;
 	cout << "\t*****************BOTH clients will receive ONE MONTH FREE****************** " 					     << endl;
 		}
-	}
+
 
 public:
-	void setPrintReport() {
-		printReport = printReport;
-	}
 
-	void getPrintReport() {
-		return printReport;
+	void setPrintReport() {
+		cout << top << endl;
+		cout << build << endl;
+		cout << footer << endl;
+	}
+	string getPrintReport(string printReport) {
+		return printReport	;
 	}
 };
