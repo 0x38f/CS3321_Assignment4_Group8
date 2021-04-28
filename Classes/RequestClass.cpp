@@ -27,7 +27,7 @@ private:
 
 		//Routes to Correct Staff member based on Topic
 		void routeStaff() {
-			string helpTopic, staff1, staff2, staff3;
+			string helpTopic, staff1, staff2, staff3, staff4;
 			for (int i = 0; i < helpTopic.length(); i++) {
 				if (helpTopic == i) {
 					switch (i) {
@@ -36,6 +36,8 @@ private:
 					case 2: send(staff2);
 						break;
 					case 3: send(staff3);
+						break;
+					case 4: send(staff4);
 						break;
 						.
 							.
