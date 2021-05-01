@@ -22,14 +22,41 @@ private:
         string pWord;
         
         cout << "Welcome to the DepoNet.\n";
-        cout << "Log in with your username and password\n";
+        cout << "Log in with your username and password.\n";
         cout << "U: ";
-        cin >> uName;
+        getline(cin, uName);
         cout << "P: ";
-        cin >> pWord;
+        getline(cin, pWord);
         
-        clearScreen();
+        if (uName == "test" && pWord == "!Temp123$?") {
+            
+            siteMenu();
+        
+        } else {
+            
+            uiRegister(uName);
+            
+        }
 
+    };
+
+    //UI for Registration
+    void uiRegister(string user) {
+        
+        Register Registration;
+        
+        if (Registration.accountExist(user)) {
+            
+            cout << "Password is incorrect.";
+            
+            clearScreen();
+            loginScreen();
+            
+        } else {
+            
+            cout << "Please Register for a new Account.";
+            
+        }
     };
     
     //displays the menu options
