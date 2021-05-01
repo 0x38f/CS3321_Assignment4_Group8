@@ -1,156 +1,141 @@
 /* The Database class is responsible for communicating, updating, and reading from the different tables in the database.	*/
+#include <iostream>
+#include <string>
+#include <vector>
+#include <utility>
+#include <fstream>
+#include <variant>
+#include <ranges>
+#include <stdexcept> // std::runtime_error
+#include <sstream> // std::stringstream
+using namespace std;
+
+
 
 class Database {
-	//Initialize connection
+
 private:
-	 // Constant Variables to Intialize Connection
-	const string& user = “root”;
-	const string& password = “pass  “;
-	const string& connect = “ “;
-	unsigned int minConn = 0;
-	unsigned int maxConn = 50;
-	unsigned int incrConn = 10;
-	 //Calls the Connection class to connect to database
-	Connection* conn = Connection::createConnection(); 
-		//Intialize the Virtual Connection
-		virtual Connection* conn = conn->createConnection(user, password, connect, minConn, maxConn, incrConn) {
-			//Error Message
-			if(createConnection != conn) {
-				cout << "Unable to make Connection!" << endl;
-			else
-				cout << "Connection Made" << endl;
+
+	void readFile(string filename, vector<pair<string, vector<int>>> dataset) {
+		// Make a CSV file with one or more columns of integer values
+		// Each column of data is represented by the pair <column name, column data>
+		//   as pair<string, std::vector<int>>
+		// The dataset is represented as a vector of these columns
+
+		// Create an output filestream object
+		ofstream myFile(filename);
+
+		// Send column names to the stream
+		for (int j = 0; j < dataset.size(); j++)
+		{
+			myFile << dataset.at(j).first;
+			if (j != dataset.size() - 1) myFile << ",";
+		}
+		myFile << "\n";
+
+		// Send data to the stream
+		for (int i = 0; i < dataset.at(0).second.size(); i++)
+		{
+			for (int j = 0; j < dataset.size(); ++j)
+			{
+				myFile << dataset.at(j).second.at(i);
+				if (j != dataset.size() - 1) myFile << ",";
 			}
-			//Initialzies Statement/Queries
-			Statement* stmt = conn->createStatement("SELECT blobcol FROM database");
-			//Initializes ability to read and retrieve results from queries
-			ResultSet* rs = stmt->executeQuery("SELECT * FROM database");
-			rs->next();
+			myFile << "\n";
+		}
+	};
+
+	void confRm() {
+		string filename;
+
+		filename = ofstream myfile("ConferenceRoom.txt");
+
+		// Make 5 vectors
+		vector<int> vec1;
+		vector<string> vec2;
+		vector<int> vec3;
+		vector<int> vec4;
+		vector<int> vec5;
+
+		// Wrap into a vector
+		vector<pair<string, vector<int>>> vals = { {"idConfrm", vec1}, {"Name", vec2}, {"Capacity", vec3}, {"Video", vec4}, {"idOffice", vec5} };
+
+		// Write the vector to CSV
+		write_csv("confrm.csv", vals);
+	};
+
+	void write_csv() {
+
+		vector<pair<string, vector<int>>> read_csv(string filename);
+		// Reads a CSV file into a vector of <string, vector<int>> pairs where
+		// each pair represents <column name, column values>
+
+		// Create a vector of <string, int vector> pairs to store the result
+		vector<pair<string, vector<int>>> result;
+
+		// Create an input filestream
+		ofstream myFile(filename);
+
+		// Make sure the file is open
+		if (!myFile.is_open()) throw runtime_error("Could not open file");
+
+		// Helper vars
+		string line, colname;
+		int val;
+
+		// Read the column names
+		if (myFile.good()) {
+			// Extract the first line in the file
+			getline(myFile, line);
+
+			// Create a stringstream from line
+			stringstream ss(line);
+
+			// Extract each column name
+			while (getline(ss, colname, ',')) {
+
+				// Initialize and add <colname, int vector> pairs to result
+				result.push_back({ colname, vector<int> {} });
+			}
 		}
 
-		//To Update different tables within Database
-		void updateFirm() {
-userData.infile(RandomAccessFile.txt);
-executeUpdate("INSERT INTO firm VALUES (fID, firmName, firmRate, startdate, phoneNumber, address, email )");
-}
-void updateStaff(){
-userData.infile("newuser.txt");
-executeUpdate("INSERT INTO staff VALUES (sID, name, salary, startdate, phoneNumber, address, birthdate )");
-}
-void updateBilling(){
-billing.infile("RandomAccessFile.txt");
-			executeUpdate("INSERT INTO billing VALUES (fID, Invoice )");
-}
-void updateSchedule(){
-schedule.infile(RandomAccessFile.txt);
-executeUpdate("INSERT INTO schedule VALUES (DATE, TIME, StaffID, FirmName, HoursReserved, DateReserved, Misc)");
-} 
-		void updateNewUser(){
-			register.getRegisterAccount();
-executeUpdate(“INSERT INTO new user VALUES(sID, username, password, email )”);
+		// Read data, line by line
+		while (getline(myFile, line))
+		{
+			// Create a stringstream of the current line
+			stringstream ss(line);
+
+			// Keep track of the current column index
+			int colIdx = 0;
+
+			// Extract each integer
+			while (ss >> val) {
+
+				// Add the current integer to the 'colIdx' column's values vector
+				result.at(colIdx).second.push_back(val);
+
+				// If the next token is a comma, ignore it and move on
+				if (ss.peek() == ',') ss.ignore();
+
+				// Increment the column index
+				colIdx++;
+			}
 		}
-		
-		
-		  //To read and retrieve query results from Database
-		void readFirm() {
-Metadata firmtab_metaData = connection->getMetaData("Firm", MetaData::PTYPE_TABLE);
-listofColumns = firmtab_metaData = getVector(MetaData::ATTR_LIST_COLUMNS);
-			vector<MetaData>listofColumns;
-			for (int i = 0; i < listofColumns.size(); i++) {
-				MetaData columnobj = listofColumns[i];
-				cout << (columnobj.getString(MetaData::ATTR_NAME)) << endl;
-}
-void readStaff(){
-Metadata stafftab_metaData = connection->getMetaData("Staff", MetaData::PTYPE_TABLE);
-listofColumns = stafftab_metaData = getVector(MetaData::ATTR_LIST_COLUMNS);
-			vector<MetaData>listofColumns;
-			for (int i = 0; i < listofColumns.size(); i++) {
-				MetaData columnobj = listofColumns[i];
-				cout << (columnobj.getString(MetaData::ATTR_NAME)) << endl;
-}
-void readBilling(){
-Metadata billtab_metaData = connection->getMetaData("Billing", MetaData::PTYPE_TABLE);
-listofColumns = billtab_metaData = getVector(MetaData::ATTR_LIST_COLUMNS);
-			vector<MetaData>listofColumns;
-			for (int i = 0; i < listofColumns.size(); i++) {
-				MetaData columnobj = listofColumns[i];
-				cout << (columnobj.getString(MetaData::ATTR_NAME)) << endl;
-}
-void readSchedule(){
-Metadata schedtab_metaData = connection->getMetaData("Schedule", MetaData::PTYPE_TABLE);
-listofColumns = schedtab_metaData = getVector(MetaData::ATTR_LIST_COLUMNS);
-			vector<MetaData>listofColumns;
-			for (int i = 0; i < listofColumns.size(); i++) {
-				MetaData columnobj = listofColumns[i];
-				cout << (columnobj.getString(MetaData::ATTR_NAME)) << endl;
-				}
-		void readNewUser(){
-Metadata newusertab_metaData = connection->getMetaData("New User", MetaData::PTYPE_TABLE);
-listofColumns = newusertab_metaData = getVector(MetaData::ATTR_LIST_COLUMNS);
-			vector<MetaData>listofColumns;
-			for (int i = 0; i < listofColumns.size(); i++) {
-				MetaData columnobj = listofColumns[i];
-				cout << (columnobj.getString(MetaData::ATTR_NAME)) << endl;
-				}
-		}
+	}
 
-void term(){
-Connection::terminateConnection(conn);
-}
+	void write() {
+		// Read files
+		vector<pair<string, vector<int>>> confRm = write_csv("confrm.csv");
 
+		vector<pair<string, vector<int>>> firm = write_csv("Firm.csv");
 
-public:
-	//getter and setters
+		vector<pair<string, vector<int>>> depo = write_csv("Deposition.csv");
 
-void setReadFirm(string f) {
-	string readFirm = f;
-}
-void setReadStaff(string t) {
-	string readStaff = t;
-}
-void setReadSchedule(string s) {
-	string readSchedule = s;
-}
-void setReadBilling(string b) {
-	string readBilling = b;
-}
-void setUpdateFirm(string u) {
-	string updateFirm = u;
-}
-void setUpdateStaff(string t) {
-	string updateStaff = t;
-}
-void setUpdateSchedule(string s) {
-	string updateschedule = s;
-}
-void setUpdateBilling(string b) {
-	string updateBilling = b;
-}
+		vector<pair<string, vector<int>>> offices = write_csv("Offices.csv");
 
-string getUpdateFirm() {
-	return updateFirm;
-}
-string getUpdateStaff() {
-	return updateStaff;
-}
-string getUpdateSchedule() {
-	return updateSchedule;
-}
-string getUpdateBilling() {
-	return updateBilling;
-}
-string getReadFirm() {
-	return readFirm;
-}
+		vector<pair<string, vector<int>>> schedDepo = write_csv("ScheduledDepo.csv");
 
-string getReadStaff() {
-	return readStaff;
-}
+		vector<pair<string, vector<int>>> staff = write_csv("Staff.csv");
 
-string getReadSchedule() {
-	return readSchedule;
-}
-
-string getReadBilling() {
-	return readBilling;
-}
+	}
 };
