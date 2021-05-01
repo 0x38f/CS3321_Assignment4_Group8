@@ -40,23 +40,44 @@ private:
 
     };
 
-    //UI for Registration
+      //UI for Registration
     void uiRegister(string user) {
         
         Register Registration;
         
+        string email;
+        string uName;
+        string pass;
+        
         if (Registration.accountExist(user)) {
             
-            cout << "Password is incorrect.";
-            
             clearScreen();
+            
+            cout << "Password is incorrect.\n";
+            
             loginScreen();
             
         } else {
             
-            cout << "Please Register for a new Account.";
+            cout << "Enter the following to register for a new account: \n";
+            cout << "Email";
+            getline(cin, email);
+            cout << "Username: ";
+            getline(cin, uName);
+            cout << "Create Password:"
+            getline(cin, pass);
+            
+            Registration.registerAccount();
+            
+            clearScreen();
+            
+            cout << "Account Created.\n";
+            
+            loginScreen();
+            
             
         }
+        
     };
     
     //displays the menu options
