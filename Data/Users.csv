@@ -1,2 +1,2 @@
-userID,username,password
-0,test,!Temp123$?
+userID,email,username,password
+0,testemail@tmail.com,test,!Temp123$?
