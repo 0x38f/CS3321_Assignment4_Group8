@@ -2,140 +2,196 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <utility>
 #include <fstream>
-#include <variant>
-#include <ranges>
-#include <stdexcept> // std::runtime_error
-#include <sstream> // std::stringstream
+#include <iterator>
 using namespace std;
 
 
 
 class Database {
 
+public:
+	//getter and setters
+
+	void setConfrmPrint(string c) {
+		string confrm = c;
+	}
+	void setDepoPrint(string d) {
+		string depo = d;
+	}
+	void setFirmPrint(string f) {
+		string firm = f;
+	}
+	void setOfficesPrint(string o) {
+		string offices = o;
+	}
+	void setSchedPrint(string sc) {
+		string sched = sc;
+	}
+	void setStaffPrint(string s) {
+		string staff = s;
+	}
+	void setUsersPrint(string u) {
+		string users = u;
+	}
+
+	string getUsersPrint(string users) {
+		return users;
+	}
+	string getStaffPrint(string staff) {
+		return staff;
+	}
+	string getDepoPrint(string depo) {
+		return depo;
+	}
+	string getFirmPrint(string firm) {
+		return firm;
+	}
+	string getOfficesPrint(string offices) {
+		return offices;
+	}
+	string getSchedPrint(string sched) {
+		return sched;
+	}
+	string getConfrmPrint(string confrm) {
+		return confrm;
+	}
+
+
+
+
 private:
+	//Construct Vector based on contents of csv file
+	void confrm() {
+		//open file
+		ifstream myfile("ConferenceRoom.csv");
+		//Construct vector
+		vector<vector<string>> vec1{
+				istream_iterator<string>(myfile),
+				istream_iterator<string>()
+		};
+	}
 
-	void readFile(string filename, vector<pair<string, vector<int>>> dataset) {
-		// Make a CSV file with one or more columns of integer values
-		// Each column of data is represented by the pair <column name, column data>
-		//   as pair<string, std::vector<int>>
-		// The dataset is represented as a vector of these columns
+		//Displays vector contents
+		void confrmPrint(vector<vector<string>> vec1) {
 
-		// Create an output filestream object
-		ofstream myFile(filename);
-
-		// Send column names to the stream
-		for (int j = 0; j < dataset.size(); j++)
-		{
-			myFile << dataset.at(j).first;
-			if (j != dataset.size() - 1) myFile << ",";
-		}
-		myFile << "\n";
-
-		// Send data to the stream
-		for (int i = 0; i < dataset.at(0).second.size(); i++)
-		{
-			for (int j = 0; j < dataset.size(); ++j)
-			{
-				myFile << dataset.at(j).second.at(i);
-				if (j != dataset.size() - 1) myFile << ",";
-			}
-			myFile << "\n";
-		}
-	};
-
-	void confRm() {
-		string filename;
-
-		filename = ofstream myfile("ConferenceRoom.txt");
-
-		// Make 5 vectors
-		vector<int> vec1;
-		vector<string> vec2;
-		vector<int> vec3;
-		vector<int> vec4;
-		vector<int> vec5;
-
-		// Wrap into a vector
-		vector<pair<string, vector<int>>> vals = { {"idConfrm", vec1}, {"Name", vec2}, {"Capacity", vec3}, {"Video", vec4}, {"idOffice", vec5} };
-
-		// Write the vector to CSV
-		write_csv("confrm.csv", vals);
-	};
-
-	void write_csv() {
-
-		vector<pair<string, vector<int>>> read_csv(string filename);
-		// Reads a CSV file into a vector of <string, vector<int>> pairs where
-		// each pair represents <column name, column values>
-
-		// Create a vector of <string, int vector> pairs to store the result
-		vector<pair<string, vector<int>>> result;
-
-		// Create an input filestream
-		ofstream myFile(filename);
-
-		// Make sure the file is open
-		if (!myFile.is_open()) throw runtime_error("Could not open file");
-
-		// Helper vars
-		string line, colname;
-		int val;
-
-		// Read the column names
-		if (myFile.good()) {
-			// Extract the first line in the file
-			getline(myFile, line);
-
-			// Create a stringstream from line
-			stringstream ss(line);
-
-			// Extract each column name
-			while (getline(ss, colname, ',')) {
-
-				// Initialize and add <colname, int vector> pairs to result
-				result.push_back({ colname, vector<int> {} });
+			for (int i = 0; i != vec1.size(); i++) {
+				cout << i << " ";
+				cout << endl;
 			}
 		}
 
-		// Read data, line by line
-		while (getline(myFile, line))
-		{
-			// Create a stringstream of the current line
-			stringstream ss(line);
+	//Construct Vector based on contents of csv file
+	void depo() {
+		//open file
+		ifstream myfile("Deposition.csv");
+		//Construct vector
+		vector<vector<string>> vec2{
+				istream_iterator<string>(myfile),
+				istream_iterator<string>()
+		};
+	}
 
-			// Keep track of the current column index
-			int colIdx = 0;
+		//Displays vector contents
+		void depoPrint(vector<vector<string>> vec2) {
 
-			// Extract each integer
-			while (ss >> val) {
-
-				// Add the current integer to the 'colIdx' column's values vector
-				result.at(colIdx).second.push_back(val);
-
-				// If the next token is a comma, ignore it and move on
-				if (ss.peek() == ',') ss.ignore();
-
-				// Increment the column index
-				colIdx++;
+			for (int i = 0; i != vec2.size(); i++) {
+				cout << i << " ";
+				cout << endl;
 			}
+		}
+
+	//Construct Vector based on contents of csv file
+	void firm() {
+		//open file
+		ifstream myfile("Firm.csv");
+		//Construct vector
+		vector<vector<string>> vec3{
+				istream_iterator<string>(myfile),
+				istream_iterator<string>()
+		};
+	}
+		//Displays vector contents
+		void firmPrint(vector<vector<string>> vec3) {
+
+			for (int i = 0; i != vec3.size(); i++) {
+				cout << i << " ";
+				cout << endl;
+			}
+		}
+	//Construct Vector based on contents of csv file
+	void offices() {
+		//open file
+		ifstream myfile("Offices.csv");
+		//Construct vector
+		vector<vector<string>> vec4{
+				istream_iterator<string>(myfile),
+				istream_iterator<string>()
+		};
+	}
+		//Displays vector contents
+		void officesPrint(vector<vector<string>> vec4) {
+
+			for (int i = 0; i != vec4.size(); i++) {
+				cout << i << " ";
+				cout << endl;
+			}
+		}
+	//Construct Vector based on contents of csv file
+	void scheddepo() {
+		//open file
+		ifstream myfile("ScheduledDepo.csv");
+		//Construct vector
+		vector<vector<string>> vec5{
+				istream_iterator<string>(myfile),
+				istream_iterator<string>()
+		};
+	}
+		//Displays vector contents
+		void schedPrint(vector<vector<string>> vec5) {
+
+			for (int i = 0; i != vec5.size(); i++) {
+				cout << i << " ";
+				cout << endl;
+			}
+		}
+	//Construct Vector based on contents of csv file
+	void staff() {
+		//open file
+		ifstream myfile("Staff.csv");
+		//Construct vector
+		vector<vector<string>> vec6{
+				istream_iterator<string>(myfile),
+				istream_iterator<string>()
+		};
+	}
+		//Displays vector contents
+		void staffPrint(vector<vector<string>> vec6) {
+
+			for (int i = 0; i != vec6.size(); i++) {
+				cout << i << " ";
+				cout << endl;
+			}
+		}
+
+	//Construct Vector based on contents of csv file
+	void users() {
+		//open file
+		ifstream myfile("Users.csv");
+		//Construct vector
+		vector<vector<string>> vec7 {
+			istream_iterator<string>(myfile),
+			istream_iterator<string>()
+		};
+	}
+	//Displays vector contents
+	void usersPrint(vector<vector<string>> vec7) {
+
+		for (int i = 0; i != vec7.size(); i++) {
+			cout << i << " ";
+			cout << endl;
 		}
 	}
 
-	void write() {
-		// Read files
-		vector<pair<string, vector<int>>> confRm = write_csv("confrm.csv");
 
-		vector<pair<string, vector<int>>> firm = write_csv("Firm.csv");
-
-		vector<pair<string, vector<int>>> depo = write_csv("Deposition.csv");
-
-		vector<pair<string, vector<int>>> offices = write_csv("Offices.csv");
-
-		vector<pair<string, vector<int>>> schedDepo = write_csv("ScheduledDepo.csv");
-
-		vector<pair<string, vector<int>>> staff = write_csv("Staff.csv");
-
-	}
 };
