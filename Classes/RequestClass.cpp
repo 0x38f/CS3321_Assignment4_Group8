@@ -39,13 +39,11 @@ private:
 						break;
 					case 4: send(staff4);
 						break;
-						.
-							.
-							.
+
 					}
 				}
 			}
-				
+
 		}
 
 
