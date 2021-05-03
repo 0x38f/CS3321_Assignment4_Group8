@@ -4,56 +4,60 @@
 #include <vector>
 #include <fstream>
 #include <iterator>
+#include <DepositonClass.cpp>
 using namespace std;
 
 
 
 class Database {
 
+private:
+	string confrm, depo, firm, offices, sched, staff, users;
+
 public:
 	//getter and setters
 
 	void setConfrmPrint(string c) {
-		string confrm = c;
+		confrm = c;
 	}
 	void setDepoPrint(string d) {
-		string depo = d;
+		 depo = d;
 	}
 	void setFirmPrint(string f) {
-		string firm = f;
+		 firm = f;
 	}
 	void setOfficesPrint(string o) {
-		string offices = o;
+		 offices = o;
 	}
 	void setSchedPrint(string sc) {
-		string sched = sc;
+		 sched = sc;
 	}
 	void setStaffPrint(string s) {
-		string staff = s;
+		 staff = s;
 	}
 	void setUsersPrint(string u) {
-		string users = u;
+		 users = u;
 	}
 
-	string getUsersPrint(string users) {
+	string getUsersPrint() {
 		return users;
 	}
-	string getStaffPrint(string staff) {
+	string getStaffPrint() {
 		return staff;
 	}
-	string getDepoPrint(string depo) {
+	string getDepoPrint() {
 		return depo;
 	}
-	string getFirmPrint(string firm) {
+	string getFirmPrint() {
 		return firm;
 	}
-	string getOfficesPrint(string offices) {
+	string getOfficesPrint() {
 		return offices;
 	}
-	string getSchedPrint(string sched) {
+	string getSchedPrint() {
 		return sched;
 	}
-	string getConfrmPrint(string confrm) {
+	string getConfrmPrint() {
 		return confrm;
 	}
 
@@ -92,12 +96,27 @@ private:
 		};
 	}
 
-		//Displays vector contents
-		void depoPrint(vector<vector<string>> vec2) {
 
-			for (int i = 0; i != vec2.size(); i++) {
-				cout << i << " ";
-				cout << endl;
+		// saves updated depositions
+		void update() {
+			Deposition depo;
+			depo.setUpdate(depo);
+				cout << depo.getUpdate();
+		}
+	   //Appends saved depositions
+		void append() {
+			Deposition depo;
+			depo.setAppend(depo);
+			cout << depo.getAppend();
+		}
+
+
+		//Displays vector contents
+	void depoPrint(vector<vector<string>> vec2) {
+
+		for (int i = 0; i != vec2.size(); i++) {
+			cout << i << " ";
+			cout << endl;
 			}
 		}
 
