@@ -40,7 +40,7 @@ private:
 
     };
 
-      //UI for Registration
+   //UI for Registration
     void uiRegister(string user) {
         
         Register Registration;
@@ -49,7 +49,7 @@ private:
         string uName;
         string pass;
         
-        if (Registration.accountExist(user)) {
+        if (Registration.accountExists(uName)) {
             
             clearScreen();
             
@@ -64,14 +64,14 @@ private:
             getline(cin, email);
             cout << "Username: ";
             getline(cin, uName);
-            cout << "Create Password:"
+            cout << "Create Password:";
             getline(cin, pass);
             
             Registration.registerAccount();
             
             clearScreen();
             
-            cout << "Account Created.\n";
+            cout << "Account Created";
             
             loginScreen();
             
