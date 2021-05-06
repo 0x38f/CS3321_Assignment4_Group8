@@ -4,7 +4,8 @@
 #include <vector>
 #include <fstream>
 #include <iterator>
-#include <DepositonClass.cpp>
+
+
 using namespace std;
 
 
@@ -12,53 +13,53 @@ using namespace std;
 class Database {
 
 private:
-	string confrm, depo, firm, offices, sched, staff, users;
+	vector<string> confrmVec, depoVec, firmVec, officesVec, schedVec, staffVec, usersVec;
 
 public:
 	//getter and setters
 
-	void setConfrmPrint(string c) {
-		confrm = c;
+	void setConfrmPrint() {
+        confrmVec = confrm();
 	}
-	void setDepoPrint(string d) {
-		 depo = d;
+	void setDepoPrint() {
+        depoVec = depo();
 	}
-	void setFirmPrint(string f) {
-		 firm = f;
+	void setFirmPrint() {
+        firmVec = firm();
 	}
-	void setOfficesPrint(string o) {
-		 offices = o;
+	void setOfficesPrint() {
+        officesVec = offices();
 	}
-	void setSchedPrint(string sc) {
-		 sched = sc;
+	void setSchedPrint() {
+        schedVec = scheddepo();
 	}
-	void setStaffPrint(string s) {
-		 staff = s;
+	void setStaffPrint() {
+        staffVec = staff();
 	}
-	void setUsersPrint(string u) {
-		 users = u;
+	void setUsersPrint() {
+        usersVec = users();
 	}
 
-	string getUsersPrint() {
-		return users;
+	vector<string> getUsersPrint() {
+		return usersVec;
 	}
-	string getStaffPrint() {
-		return staff;
+	vector<string> getStaffPrint() {
+		return staffVec;
 	}
-	string getDepoPrint() {
-		return depo;
+	vector<string> getDepoPrint() {
+		return depoVec;
 	}
-	string getFirmPrint() {
-		return firm;
+	vector<string> getFirmPrint() {
+		return firmVec;
 	}
-	string getOfficesPrint() {
-		return offices;
+	vector<string> getOfficesPrint() {
+		return officesVec;
 	}
-	string getSchedPrint() {
-		return sched;
+	vector<string> getSchedPrint() {
+		return schedVec;
 	}
-	string getConfrmPrint() {
-		return confrm;
+	vector<string> getConfrmPrint() {
+		return confrmVec;
 	}
 
 
@@ -66,148 +67,147 @@ public:
 
 private:
 	//Construct Vector based on contents of csv file
-	void confrm() {
+	vector<string> confrm() {
 		//open file
 		ifstream myfile("ConferenceRoom.csv");
 		//Construct vector
-		vector<vector<string>> vec1{
+		vector<string> vec1{
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
+        
+        return vec1;
 	}
 
 		//Displays vector contents
-		void confrmPrint(vector<vector<string>> vec1) {
+		void confrmPrint(vector<string> vec1) {
 
 			for (int i = 0; i != vec1.size(); i++) {
-				cout << i << " ";
+				cout << vec1[i] << " ";
 				cout << endl;
 			}
 		}
 
 	//Construct Vector based on contents of csv file
-	void depo() {
+	vector<string> depo() {
 		//open file
 		ifstream myfile("Deposition.csv");
 		//Construct vector
-		vector<vector<string>> vec2{
+		vector<string> vec2{
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
+        
+        return vec2;
 	}
 
-
-		// saves updated depositions
-		void update() {
-			Deposition depo;
-			depo.setUpdate(depo);
-				cout << depo.getUpdate();
-		}
-	   //Appends saved depositions
-		void append() {
-			Deposition depo;
-			depo.setAppend(depo);
-			cout << depo.getAppend();
-		}
-
-
 		//Displays vector contents
-	void depoPrint(vector<vector<string>> vec2) {
+	void depoPrint(vector<string> vec2) {
 
 		for (int i = 0; i != vec2.size(); i++) {
-			cout << i << " ";
+			cout << vec2[i] << " ";
 			cout << endl;
 			}
 		}
 
 	//Construct Vector based on contents of csv file
-	void firm() {
+	vector<string> firm() {
 		//open file
 		ifstream myfile("Firm.csv");
 		//Construct vector
-		vector<vector<string>> vec3{
+		vector<string> vec3{
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
+        
+        return vec3;
 	}
 		//Displays vector contents
-		void firmPrint(vector<vector<string>> vec3) {
+		void firmPrint(vector<string> vec3) {
 
 			for (int i = 0; i != vec3.size(); i++) {
-				cout << i << " ";
+				cout << vec3[i] << " ";
 				cout << endl;
 			}
 		}
 	//Construct Vector based on contents of csv file
-	void offices() {
+    vector<string> offices() {
 		//open file
 		ifstream myfile("Offices.csv");
 		//Construct vector
-		vector<vector<string>> vec4{
+		vector<string> vec4{
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
+        
+        return vec4;
 	}
 		//Displays vector contents
-		void officesPrint(vector<vector<string>> vec4) {
+		void officesPrint(vector<string> vec4) {
 
 			for (int i = 0; i != vec4.size(); i++) {
-				cout << i << " ";
+				cout << vec4[i] << " ";
 				cout << endl;
 			}
 		}
 	//Construct Vector based on contents of csv file
-	void scheddepo() {
+	vector<string> scheddepo() {
 		//open file
 		ifstream myfile("ScheduledDepo.csv");
 		//Construct vector
-		vector<vector<string>> vec5{
+		vector<string> vec5{
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
+        
+        return vec5;
 	}
 		//Displays vector contents
-		void schedPrint(vector<vector<string>> vec5) {
+		void schedPrint(vector<string> vec5) {
 
 			for (int i = 0; i != vec5.size(); i++) {
-				cout << i << " ";
+				cout << vec5[i] << " ";
 				cout << endl;
 			}
 		}
 	//Construct Vector based on contents of csv file
-	void staff() {
+	vector<string> staff() {
 		//open file
 		ifstream myfile("Staff.csv");
 		//Construct vector
-		vector<vector<string>> vec6{
+		vector<string> vec6{
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
+        
+        return vec6;
 	}
 		//Displays vector contents
-		void staffPrint(vector<vector<string>> vec6) {
+		void staffPrint(vector<string> vec6) {
 
 			for (int i = 0; i != vec6.size(); i++) {
-				cout << i << " ";
+				cout << vec6[i] << " ";
 				cout << endl;
 			}
 		}
 
 	//Construct Vector based on contents of csv file
-	void users() {
+	vector<string> users() {
 		//open file
 		ifstream myfile("Users.csv");
 		//Construct vector
-		vector<vector<string>> vec7 {
+		vector<string> vec7 {
 			istream_iterator<string>(myfile),
 			istream_iterator<string>()
 		};
+        
+        return vec7;
 	}
 	//Displays vector contents
-	void usersPrint(vector<vector<string>> vec7) {
+	void usersPrint(vector<string> vec7) {
 
 		for (int i = 0; i != vec7.size(); i++) {
-			cout << i << " ";
+			cout << vec7[i] << " ";
 			cout << endl;
 		}
 	}
