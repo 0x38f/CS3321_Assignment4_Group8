@@ -67,5 +67,10 @@ class Communication {
 			}
 		}
 	}
-
+void setEmail(string e){
+  string email = e;
+}
+string getEmail(){
+  return email;
+}
 };

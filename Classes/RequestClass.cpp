@@ -39,13 +39,11 @@ private:
 						break;
 					case 4: send(staff4);
 						break;
-						.
-							.
-							.
+
 					}
 				}
 			}
-				
+
 		}
 
 
@@ -65,4 +63,5 @@ public:
 		string getRouteStaff() {
 			return routeStaff;
 		}
+		
 };

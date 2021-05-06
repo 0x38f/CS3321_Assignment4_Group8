@@ -53,6 +53,18 @@ private:
 
 public:
 
+	void setTop(string t){
+		string top = t;
+	}
+
+	void setFooter(string f){
+		string footer = f;
+	}
+
+	void setBuild(string b){
+		string build = b;
+	}
+
 	void setPrintReport() {
 		cout << top << endl;
 		cout << build << endl;
@@ -60,5 +72,15 @@ public:
 	}
 	string getPrintReport(string printReport) {
 		return printReport	;
+	}
+
+	string getTop(){
+		return top;
+	}
+	string getBuild(){
+		return build;
+	}
+	string getFooter(){
+		return footer;
 	}
 };

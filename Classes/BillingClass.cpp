@@ -12,23 +12,15 @@ class Billing {
 private:
  Database database;
 
- float hoursReserved, staffHours, depoStaffHours, hoursScheduled, firmRate;
+ float hoursReserved, hoursScheduled, firmRate;
 
  void hoursReserved() {
-	 database.readDB(read = 4);
-
- }
-
- void calculate() {
-	 for (int i = 0; i < hoursReserved; i++) {
-		 database.readDB(read = 1);
-		 staffHours = depoStaffHours * firmRate;
-
-	 }
+	 database.scheddepo(read = 4);
  }
 
  float subtotal() {
-	 float subtotal = firmRate + staffHours + hoursReserved;
+   firmRate = 100;
+	 float subtotal = firmRate + hoursReserved;
 	 return subtotal;
  }
 
@@ -42,38 +34,33 @@ private:
 	 return total;
 
  }
+ float hoursReserved, total, taxes, subtotal;
 public:
- void setHoursReserved(float hoursReserved){
-	 hoursReserved = hoursReserved;
- }
- void setStaffHours(float staffHours) {
-		staffHours = staffHours;
+ void setHoursReserved(float hR){
+	 hoursReserved = hR;
  }
 
- void setTotal(float total) {
-	 total = total;
+ void setTotal(float t) {
+	 total = t;
  }
- void setTaxes(float taxes) {
-	 taxes = taxes;
+ void setTaxes(float ta) {
+	 taxes = ta;
  }
- void setSubtotal(float subtotal) {
-	 subtotal = subtotal;
+ void setSubtotal(float sub) {
+	 subtotal = sub;
  }
 
  float getHoursReserved() {
 	 return hoursReserved;
  }
 
- float getStaffHours() {
-	 return staffHours;
- }
- float getTaxes(float taxes) {
+ float getTaxes() {
 	 return taxes;
  }
- float getSubtotal(float subtotal) {
+ float getSubtotal() {
 	 return subtotal;
  }
- float getTotal(float total) {
+ float getTotal() {
 	 return total;
  }
 
