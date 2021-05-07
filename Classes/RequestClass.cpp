@@ -13,7 +13,7 @@ private:
 	void chatTranscript() {
 		string chat[500];
 		string line;
-		int i, j, x, y;
+		int i, j;
         
 		ifstream myfile("chatTranscript.txt");
         
@@ -21,10 +21,10 @@ private:
 			while (!myfile.eof()) {
 				getline(myfile, line);
 				cout << line << endl;
-				for (i = 0; i < x; i++) {
+				for (i = 0; i < 500-1; i++){
 					chat[i] = line;
 				};
-				for (j = 0; j < y; j++) {
+				for (j = 0; j < 500-1; j++){
 					cout << chat[j];
 				};
 			}
@@ -60,14 +60,14 @@ private:
 					}
 				}
 			}
-                 return rstaff; // returns the staff number being assigned
+                
 		}
 
 
 		//Setters
 public:
 		void setRouteStaff(string routeStaff) {
-			string n = routeStaff;
+			helpTopic = routeStaff;
 		}
 		void setChatTranscript(string chatTranscript) {
 			string n = chatTranscript;
