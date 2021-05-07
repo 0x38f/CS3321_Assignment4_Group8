@@ -1,14 +1,16 @@
 /*This class is responsible for obtaining required information about 
 Staff, Firms, and Depositions in the database. It does this by taking the information entered into a form by a staff member which is saved as a RandomAccessFile.txt. With the help of the Database class it takes the file and updates the correct table of the database.*/ 
 
+#include "RegisterClass.cpp"
+
 class UserData {
 
 private:
-	Database database;
-	Register register;
+	Database UserDatabase;
+	Registration registration;
 	
 	//Variable to store result
-	database.rs->next();
+	UserDatabase.rs->next();
 	if (rs -> next() != NULL)
 	{
 		cout << left;
@@ -29,7 +31,7 @@ private:
 	void userFirm() {
 		//Adds new Data to Firm table
 		while(infile){
-			database.rs->next(infile);
+			UserDatabase.rs->next(infile);
 				string fID;
 				infile >> fID;
 				cout << fID << endl;
@@ -57,7 +59,7 @@ private:
 	void userStaff(){
 	// Adds new Data to Staff table
 		while (infile) {
-			database.rs->next(infile);
+			UserDatabase.rs->next(infile);
 				string sID;
 				infile >> sID;
 				cout << sID << endl;
@@ -85,7 +87,7 @@ private:
 	void schedule(){
 		//Adds new Data to Schedule table
 		while (infile) {
-			database.rs->next(infile);
+			UserDatabase.rs->next(infile);
 				string date;
 				infile >> date;
 				cout << date << endl;
@@ -112,8 +114,8 @@ private:
 		}
 	void newUser() {
 		//Adds login information into New User Table in Database
-		while (register.getRegisterAccount()) {
-			database.getupdateNewUser();
+		while (registration.getRegisterAccount()) {
+			UserDatabase.getupdateNewUser();
 		}
 	}
 public:

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "RegisterClass.cpp"
 
 using namespace std;
 
@@ -43,7 +44,7 @@ private:
    //UI for Registration
     void uiRegister(string user) {
         
-        Register Registration;
+        Registration Registration;
         
         string email;
         string uName;

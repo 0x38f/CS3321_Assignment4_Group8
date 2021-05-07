@@ -1,5 +1,8 @@
 /* Schedule Class is responsible for scheduling the firms who need rooms for their depositions.*/
 
+#include "UserDataClass.cpp"
+#include "DatabaseClass.cpp"
+
 class Schedule {
 UserData userdata;
 Database database; 

@@ -1,5 +1,12 @@
 /* Request Class is responsible for routing the firm to the correct staff based on help topic firm has requested. A copy of the chat between the two parties is saved to be utilized by the Communication Class*/
 
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <istream>
+
+using namespace std;
+
 class Request {
 private:
 
@@ -7,10 +14,12 @@ private:
 		string chat[500];
 		string line;
 		int i, j, x, y;
+        
 		ifstream myfile("chatTranscript.txt");
+        
 		if (myfile.is_open()) {
 			while (!myfile.eof()) {
-				getline(!myfile, line);
+				getline(myfile, line);
 				cout << line << endl;
 				for (i = 0; i < x; i++) {
 					chat[i] = line;
@@ -20,9 +29,13 @@ private:
 				};
 			}
 			myfile.close();
-		}
-		else cout << "Unable to open file";
-		system("PAUSE");
+        } else {
+            
+            cout << "Unable to open file";
+        
+        }
+        
+        system("PAUSE");
 	}
 
 		//Routes to Correct Staff member based on Topic

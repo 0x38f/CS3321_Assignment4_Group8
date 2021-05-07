@@ -5,7 +5,9 @@
 #include <vector>
 #include <fstream>
 #include <iterator>
-#include <bits/stdc++.h>
+#include "DatabaseClass.cpp"
+
+
 using namespace std;
 
 
@@ -15,11 +17,12 @@ private:
 
 	//Retreives Depositions	from database
 	void retrieve(){
-	Database.database;
+        
+        Database DepoDatabase;
 
-	database.setDepoPrint(vector<vector<string>> depo);
+        DepoDatabase.setDepoPrint(depo);
 
-	cout << database.getDepoPrint();
+        cout << database.getDepoPrint();
 	}
 
 

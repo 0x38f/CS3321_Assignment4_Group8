@@ -9,10 +9,11 @@
 #include <string>
 #include <fstream>
 
+
 using namespace std;
 
 //This class is resposible for registering new accounts.
-class Register {
+class Registration {
     
 private:
     

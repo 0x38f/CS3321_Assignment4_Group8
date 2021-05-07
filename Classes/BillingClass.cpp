@@ -4,64 +4,72 @@ to build the invoice*/
 #include <string>
 #include <iostream>
 #include <iomanip>
-#include <UserdataClass.cpp>
-#include <DatabaseClass.cpp>
+
+#include "DatabaseClass.cpp"
+
+
 using namespace std;
 
 class Billing {
+
 private:
- Database database;
+    Database BillingDatabase;
 
- float hoursReserved, hoursScheduled, firmRate;
+    float totalPrice, hoursReserved, hoursScheduled, firmRate, tax, subtotalPrice;
 
- void hoursReserved() {
-	 database.scheddepo(read = 4);
- }
+    float subtotal() {
+        firmRate = 100;
+        subtotalPrice = firmRate + hoursReserved;
+        return subtotalPrice;
+    }
 
- float subtotal() {
-   firmRate = 100;
-	 float subtotal = firmRate + hoursReserved;
-	 return subtotal;
- }
+    float taxes() {
+        tax = subtotal() * 0.0825;
+        return tax;
+    }
 
- float taxes() {
-	 float taxes = subtotal() * 0.0825;
-	 return taxes;
- }
+    float total() {
+        
+        totalPrice = taxes() + subtotal();
+        
+        return totalPrice;
 
- float total() {
-	 float total = taxes() + subtotal();
-	 return total;
-
- }
- float hoursReserved, total, taxes, subtotal;
+    }
+ 
 public:
- void setHoursReserved(float hR){
-	 hoursReserved = hR;
- }
+    
+    void setHoursReserved(float hR){
+        hoursReserved = hR;
+    }
 
- void setTotal(float t) {
-	 total = t;
- }
- void setTaxes(float ta) {
-	 taxes = ta;
- }
- void setSubtotal(float sub) {
-	 subtotal = sub;
- }
+    void setTotal(float t) {
+        totalPrice = t;
+    }
+    void setTaxes(float ta) {
+        tax = ta;
+    }
 
- float getHoursReserved() {
-	 return hoursReserved;
- }
+    void setSubtotal(float sub) {
+        
+        subtotalPrice = sub;
+        
+    }
 
- float getTaxes() {
-	 return taxes;
- }
- float getSubtotal() {
-	 return subtotal;
- }
- float getTotal() {
-	 return total;
- }
+    float getHoursReserved() {
+        return hoursReserved;
+    }
+
+    float getTaxes() {
+        return taxes();
+    }
+    
+    float getSubtotal() {
+        return subtotal();
+    }
+    
+    float getTotal() {
+     
+	 return total();
+    }
 
 };

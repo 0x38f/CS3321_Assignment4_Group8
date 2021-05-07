@@ -1,10 +1,11 @@
 /*The Communication class derives the chat transcript from the Request Class and emails the record to the associated firm.*/
-#include <iostrem>
+#include <iostream>
 #include <string>
 #include <iomanip>
-#include <RequestClass.cpp>
-#include <stdafx.h>
 #include <array>
+#include "RequestClass.cpp"
+
+
 using namespace std;
 using namespace System;
 using namespace EASendMail;
@@ -12,11 +13,11 @@ using namespace EASendMail;
 class Communication {
 
 
-    void email(array<System::String^>^ args) {
+    void email(array<string> args) {
 
         try
         {
-            SmtpMail^ oMail = gcnew SmtpMail("TryIt");
+            SmtpMail oMail = gcnew SmtpMail("TryIt");
 
             // Your Gmail email address
             oMail->From = "deponmore@gmail.com";

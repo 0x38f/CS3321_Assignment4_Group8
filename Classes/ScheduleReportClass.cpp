@@ -3,13 +3,18 @@ the staff firm requesting the report.*/
 
 #include <string>
 #include <iostream>
-#include <ScheduleClass.cpp>
+#include "ScheduleClass.cpp"
+
 using namespace std;
 
 	class ScheduleReport {
+        
+        Schedule scheduler;
 
-	string schedule.getprintReport(string printReport) {
+        string getprintReport(string printReport) {
+            
+            return "Test";
 		
-			return printReport();
-		}
-	};
+        }
+	
+    };
