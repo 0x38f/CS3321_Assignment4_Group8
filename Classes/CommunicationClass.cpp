@@ -3,17 +3,17 @@
 #include <string>
 #include <iomanip>
 #include <array>
+
 #include "RequestClass.cpp"
 
 
 using namespace std;
-using namespace System;
 using namespace EASendMail;
 
 class Communication {
 
 
-    void email(array<string> args) {
+    void email(string args[]) {
 
         try
         {

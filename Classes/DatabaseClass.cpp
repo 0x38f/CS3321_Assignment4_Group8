@@ -1,4 +1,4 @@
-/* The Database class is responsible for communicating, updating, and reading from the different tables in the database.	*/
+/* The Database class is responsible for communicating, updating, and reading from the different tables in the database. */
 #include <iostream>
 #include <string>
 #include <vector>

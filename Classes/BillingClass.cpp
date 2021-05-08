@@ -1,6 +1,7 @@
 /* The Billing Class calculates each item that the firms are charged for
 and is stored until the Invoice class requests the needed information
 to build the invoice*/
+ 
 #include <string>
 #include <iostream>
 #include <iomanip>

@@ -3,11 +3,14 @@
 //  RegisterClass
 //
 //  Created by Phillip Sanders on 4/3/21.
-//
+
 
 #include <iostream>
 #include <string>
 #include <fstream>
+
+#include "DatabaseClass.cpp"
+#include "UserDataClass.cpp"
 
 
 using namespace std;
@@ -65,22 +68,6 @@ private:
         return key;
         
     };
-    
-    //checks if account exist in database
-    bool accountExists(string value) {
-        
-        Database data;
-        
-        if (email == data.getUserData() && userID == data.getUserData()) {
-        
-            return true;
-        
-        } else {
-            
-            return false;
-            
-        }
-    }
     
     
 public:
@@ -168,4 +155,22 @@ public:
         newUser.userData(newAccountFile);
     }
     
+    //checks if account exist in database
+    bool accountExists(string value) {
+        
+        Database data;
+        
+        if (email == data.getUserData() && userID == data.getUserData()) {
+        
+            return true;
+        
+        } else {
+            
+            return false;
+            
+        }
+    }
+    
 };
+
+

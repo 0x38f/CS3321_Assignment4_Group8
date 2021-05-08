@@ -1,7 +1,8 @@
 /*This class is responsible for obtaining required information about 
-Staff, Firms, and Depositions in the database. It does this by taking the information entered into a form by a staff member which is saved as a RandomAccessFile.txt. With the help of the Database class it takes the file and updates the correct table of the database.*/ 
+Staff, Firms, and Depositions in the database. It does this by taking the information entered into a form by a staff member which is saved as a RandomAccessFile.txt. With the help of the Database class it takes the file and updates the correct table of the database. */
 
 #include "RegisterClass.cpp"
+#include "DatabaseClass.cpp"
 
 class UserData {
 

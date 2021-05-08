@@ -1,8 +1,11 @@
 /*This class "prints"/displays the Depositions to be emailed or printed to
  the inquiring staff/firm.*/
+ 
  #include <string>
  #include <iostream>
- #include <DepositionClass.cpp>
+
+ #include "DepositionClass.cpp"
+
  using namespace std;
 
 

@@ -1,4 +1,4 @@
-/*The Deposition class writes the deposition to a file and allows the user to review the file. Once reviewed it connects to the database and updates the Deposition table based on firmID. It also allows a user to retrieve past depositions in order to print via the deposition report class.*/
+/*The Deposition class writes the deposition to a file and allows the user to review the file. Once reviewed it connects to the database and updates the Deposition table based on firmID. It also allows a user to retrieve past depositions in order to print via the deposition report class. */
 
 #include <string>
 #include <iostream>
@@ -20,9 +20,9 @@ private:
         
         Database DepoDatabase;
 
-        DepoDatabase.setDepoPrint(depo);
+        DepoDatabase.setDepoPrint();
 
-        cout << database.getDepoPrint();
+        DepoDatabase.getDepoPrint();
 	}
 
 
@@ -71,3 +71,5 @@ public:
 		return depo;
 	}
 };
+
+

@@ -1,10 +1,13 @@
 /* The Invoice Class is responsible for building the Invoice that is
 printed and sent to each Firm*/
+
 #include <string>
 #include <iostream>
 #include <iomanip>
+
 #include "DatabaseClass.cpp"
 #include "BillingClass.cpp"
+
 using namespace std;
 
 class Invoice {

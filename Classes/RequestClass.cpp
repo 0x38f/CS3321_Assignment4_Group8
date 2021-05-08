@@ -1,4 +1,4 @@
-/* Request Class is responsible for routing the firm to the correct staff based on help topic firm has requested. A copy of the chat between the two parties is saved to be utilized by the Communication Class*/
+/* Request Class is responsible for routing the firm to the correct staff based on help topic firm has requested. A copy of the chat between the two parties is saved to be utilized by the Communication Class */
 
 #include <string>
 #include <iostream>
@@ -41,7 +41,7 @@ private:
 		//Routes to Correct Staff member based on Topic
 		void routeStaff() {
 			string helpTopic, staff1, staff2, staff3, staff4, rstaff;
-			for (int i = 0; i < helpTopic.lenght(); i++) {
+			for (int i = 0; i < helpTopic.length(); i++) {
 				if (helpTopic == i) {
 					switch (helpTopic) {
 					case 1: send(staff1);
