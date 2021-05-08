@@ -8,7 +8,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
 #include "DatabaseClass.cpp"
 
 using namespace std;
