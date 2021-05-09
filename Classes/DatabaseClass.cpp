@@ -4,8 +4,6 @@
 #include <vector>
 #include <fstream>
 #include <iterator>
-
-
 using namespace std;
 
 
@@ -75,7 +73,7 @@ private:
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
-        
+
         return vec1;
 	}
 
@@ -97,7 +95,7 @@ private:
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
-        
+
         return vec2;
 	}
 
@@ -119,7 +117,7 @@ private:
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
-        
+
         return vec3;
 	}
 		//Displays vector contents
@@ -139,7 +137,7 @@ private:
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
-        
+
         return vec4;
 	}
 		//Displays vector contents
@@ -159,7 +157,7 @@ private:
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
-        
+
         return vec5;
 	}
 		//Displays vector contents
@@ -179,7 +177,7 @@ private:
 				istream_iterator<string>(myfile),
 				istream_iterator<string>()
 		};
-        
+
         return vec6;
 	}
 		//Displays vector contents
@@ -200,7 +198,7 @@ private:
 			istream_iterator<string>(myfile),
 			istream_iterator<string>()
 		};
-        
+
         return vec7;
 	}
 	//Displays vector contents

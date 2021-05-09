@@ -1,13 +1,11 @@
 /* The Billing Class calculates each item that the firms are charged for
 and is stored until the Invoice class requests the needed information
 to build the invoice*/
- 
+
 #include <string>
 #include <iostream>
 #include <iomanip>
-
 #include "DatabaseClass.cpp"
-
 
 using namespace std;
 
@@ -30,15 +28,15 @@ private:
     }
 
     float total() {
-        
+
         totalPrice = taxes() + subtotal();
-        
+
         return totalPrice;
 
     }
- 
+
 public:
-    
+
     void setHoursReserved(float hR){
         hoursReserved = hR;
     }
@@ -51,9 +49,9 @@ public:
     }
 
     void setSubtotal(float sub) {
-        
+
         subtotalPrice = sub;
-        
+
     }
 
     float getHoursReserved() {
@@ -63,13 +61,13 @@ public:
     float getTaxes() {
         return taxes();
     }
-    
+
     float getSubtotal() {
         return subtotal();
     }
-    
+
     float getTotal() {
-     
+
 	 return total();
     }
 
