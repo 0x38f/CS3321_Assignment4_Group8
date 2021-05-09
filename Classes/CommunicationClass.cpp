@@ -6,7 +6,6 @@
 
 #include "RequestClass.cpp"
 
-
 using namespace std;
 using namespace EASendMail;
 
