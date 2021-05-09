@@ -18,7 +18,7 @@ private:
 
     float subtotal() {
         firmRate = 100;
-        subtotalPrice = firmRate + hoursReserved;
+        subtotalPrice = firmRate * hoursReserved;
         return subtotalPrice;
     }
 
