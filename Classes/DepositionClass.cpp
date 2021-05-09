@@ -7,7 +7,6 @@
 #include <iterator>
 #include "DatabaseClass.cpp"
 
-
 using namespace std;
 
 
@@ -17,7 +16,7 @@ private:
 
 	//Retreives Depositions	from database
 	void retrieve(){
-        
+
         Database DepoDatabase;
 
         DepoDatabase.setDepoPrint();
@@ -71,5 +70,3 @@ public:
 		return depo;
 	}
 };
-
-

@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <istream>
-
 using namespace std;
 
 class Request {
@@ -14,9 +13,9 @@ private:
 		string chat[500];
 		string line;
 		int i, j;
-        
+
 		ifstream myfile("chatTranscript.txt");
-        
+
 		if (myfile.is_open()) {
 			while (!myfile.eof()) {
 				getline(myfile, line);
@@ -30,11 +29,11 @@ private:
 			}
 			myfile.close();
         } else {
-            
+
             cout << "Unable to open file";
-        
+
         }
-        
+
         system("PAUSE");
 	}
 
@@ -45,7 +44,7 @@ private:
 				if (helpTopic == i) {
 					switch (helpTopic) {
 					case 1: send(staff1);
-					       rstaff= staff1; 
+					       rstaff= staff1;
 						break;
 					case 2: send(staff2);
 						rstaff=staff2;
@@ -60,7 +59,7 @@ private:
 					}
 				}
 			}
-                
+
 		}
 
 
@@ -80,5 +79,5 @@ public:
 		string getRouteStaff() {
 			return routeStaff;
 		}
-		
+
 };

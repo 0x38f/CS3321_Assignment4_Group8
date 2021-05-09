@@ -3,7 +3,6 @@
 #include <string>
 #include <iomanip>
 #include <array>
-
 #include "RequestClass.cpp"
 
 using namespace std;

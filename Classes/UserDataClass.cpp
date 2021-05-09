@@ -1,15 +1,14 @@
-/*This class is responsible for obtaining required information about 
+/*This class is responsible for obtaining required information about
 Staff, Firms, and Depositions in the database. It does this by taking the information entered into a form by a staff member which is saved as a RandomAccessFile.txt. With the help of the Database class it takes the file and updates the correct table of the database. */
 
 #include "RegisterClass.cpp"
 #include "DatabaseClass.cpp"
-
 class UserData {
 
 private:
 	Database UserDatabase;
 	Registration registration;
-	
+
 	//Variable to store result
 	UserDatabase.rs->next();
 	if (rs -> next() != NULL)
@@ -26,9 +25,9 @@ private:
 	ifstream infile;
 	infile.open("RandomAccessFile.txt");
 	//Error Message if unable to read file
-	if (infile.fail()) 
+	if (infile.fail())
 		cout << "ERROR. Could not open file!" << endl;
-	
+
 	void userFirm() {
 		//Adds new Data to Firm table
 		while(infile){
@@ -121,7 +120,7 @@ private:
 	}
 public:
 	//Setter
-	
+
 	void setUserFirm(string firm) {
 		string userFirm = firm;
 	}
@@ -134,7 +133,7 @@ public:
 
 
 
-	
+
 	// Getter
 	void getUserFirm() {
 		return userFirm;

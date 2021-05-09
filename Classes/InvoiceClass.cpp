@@ -7,7 +7,6 @@ printed and sent to each Firm*/
 
 #include "DatabaseClass.cpp"
 #include "BillingClass.cpp"
-
 using namespace std;
 
 class Invoice {
