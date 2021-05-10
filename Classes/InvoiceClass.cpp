@@ -1,5 +1,6 @@
 /* The Invoice Class is responsible for building the Invoice that is
 printed and sent to each Firm*/
+/* Shawn Varnado Currently Editing */
 
 #include <string>
 #include <iostream>
@@ -14,7 +15,7 @@ class Invoice {
 
 private:
 
-		void top() {
+		string top() {
 			UserData userdata;
 			string s;
 			cout << "\t\t\t        DEPOSITIONS & MORE    " << endl;
@@ -27,7 +28,7 @@ private:
 			cout << "----------------------------------------"  << endl << endl;
 		}
 
-		void build() {
+		string build() {
 			Billing billing;
 			UserData userdata;
 			float s, a, t;
@@ -39,7 +40,7 @@ private:
 			cout << "\t\t\t\t\tTotal: " << billing.getTotal(t)          << endl;
 		}
 
-		void footer() {
+		string footer() {
 			cout << " ------------------------------------------------" << endl;
 			cout << "\t All invoices are due within 30 days. "        << endl;
 			cout << "\t\t We love to hear from you"                     << endl;
@@ -77,12 +78,12 @@ public:
 	}
 
 	string getTop(){
-		return top;
+		return top();
 	}
 	string getBuild(){
-		return build;
+		return build();
 	}
 	string getFooter(){
-		return footer;
+		return footer();
 	}
 };
