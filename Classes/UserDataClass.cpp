@@ -8,6 +8,7 @@ class UserData {
 private:
 	Database UserDatabase;
 	Registration registration;
+	
 
 	//Variable to store result
 	UserDatabase.rs->next();
