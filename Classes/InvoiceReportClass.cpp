@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-#include <InvoiceClass.cpp>
+#include "InvoiceClass.cpp"
 using namespace std;
 
 class InvoiceReport {
