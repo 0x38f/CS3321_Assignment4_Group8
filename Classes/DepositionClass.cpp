@@ -12,25 +12,25 @@ using namespace std;
 
 class Deposition {
 private:
+
 	string depo;
-
 	//Retreives Depositions	from database
-	void retrieve(){
+	void retrieve() {
 
-        Database DepoDatabase;
+		Database DepoDatabase;
 
-        DepoDatabase.setDepoPrint();
+		DepoDatabase.setDepoPrint();
 
-        DepoDatabase.getDepoPrint();
+		DepoDatabase.getDepoPrint();
 	}
 
 
 
 	//Saves updated depositions	to database
-	void update(vector<vector<string>> depo) {
+	void update(vector<string> depo) {
 
-		for (int i = 0; i < depo.size(); i++) {
-			for (int j = 0; j < depo[i].size(); j++) {
+		for (int i = 0; i < unsigned(depo.size()); i++) {
+			for (int j = 0; j < unsigned(depo[i].size()); j++) {
 				cout << depo[i][j] << " ";
 				cout << endl;
 			}
@@ -39,8 +39,8 @@ private:
 
 	//Allows modifications to saved depositions
 	void append() {
-		vector<vector<string>> depo;
-		vector<vector<string>> deposition;
+		vector<string> depo;
+		vector<string> deposition;
 		ofstream myfile("depo.csv");
 
 		while (myfile) {
@@ -53,6 +53,7 @@ private:
 
 
 public:
+
 	//setters and getters
 	void setUpdate(string d) {
 		depo = d;
