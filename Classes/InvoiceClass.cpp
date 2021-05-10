@@ -20,7 +20,7 @@ private:
 			string s;
 			cout << "\t\t\t        DEPOSITIONS & MORE    " << endl;
 			cout << "\t\t\t\t\t         INVOICE          " << endl;
-			cout << "\t\t\t " << userdata.getUserStaff(s)    << endl;
+			// cout << "\t\t\t " << userdata.getUserStaff(s)    << endl;
 			cout << "\t\t\t"             << __TIME__       << endl;
 			cout << "\t\t\t"             << __DATE__       << endl;
 			cout << "\t  	       HOURS\t          STAFF" << endl;
@@ -28,9 +28,9 @@ private:
 			cout << "----------------------------------------"  << endl << endl;
 		}
 
-		string build() {
+		 	string build() {
 			Billing billing;
-			UserData userdata;
+			// UserData userdata;
 			float s, a, t;
 			for(int i = 0; i < 20; i++){
 			cout << "100\t " << billing.getHoursReserved() << "\t" << userdata.getUserStaff() << "\n";
@@ -69,9 +69,9 @@ public:
 	}
 
 	void setPrintReport() {
-		cout << top << endl;
-		cout << build << endl;
-		cout << footer << endl;
+		getTop();
+		getBuild();
+		getFooter();
 	}
 	string getPrintReport(string printReport) {
 		return printReport	;
