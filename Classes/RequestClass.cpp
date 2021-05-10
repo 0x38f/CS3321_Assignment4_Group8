@@ -8,6 +8,7 @@ using namespace std;
 
 class Request {
 public:
+	
 
 	void chatTranscript() {
 		string chat[500];
@@ -22,7 +23,7 @@ public:
 					chat[i] = line;
 
 				};
-				
+
 			}
 			myfile.close();
 		}
@@ -37,7 +38,7 @@ public:
 
 		//Routes to Correct Staff member based on Topic
 		void routeStaff() {
-			
+
 		int helpTopic;
 		int staff1 = 0005;
 		int staff2 = 0010;
@@ -74,8 +75,8 @@ public:
 		}
 
 
-		
 
-	
+
+
 
 };
