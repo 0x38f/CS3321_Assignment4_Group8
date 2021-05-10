@@ -1,4 +1,6 @@
 /* Schedule Class is responsible for scheduling the firms who need rooms for their depositions.*/
+//Phillip - making changes
+
 #include "DatabaseClass.cpp"
 
 class Schedule {
