@@ -8,7 +8,10 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+
 #include "RegisterClass.cpp"
+#include "ScheduleClass.cpp"
+
 using namespace std;
 
 class UserInterface {
@@ -153,7 +156,7 @@ private:
         cout << "Enter the State of the deposition: ";
         cin >> depoState;
 
-        scheduler.schedule(depoDate, depoTime, depoName, depoName, depoCity);
+        scheduler.scheduleDepo(depoDate, depoTime, depoName, depoName, depoCity);
 
     };
 
