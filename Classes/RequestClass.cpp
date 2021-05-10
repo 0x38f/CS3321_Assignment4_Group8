@@ -38,33 +38,34 @@ public:
 
 		//Routes to Correct Staff member based on Topic
 		void routeStaff() {
-
+                // changed the helpTopic variable to an int to simplify the routing proccess
 		int helpTopic;
 		int staff1 = 0005;
 		int staff2 = 0010;
 		int staff3 = 0015;
-		int rstaff;
+		string eID= " ";
 		cout << " What would you like help with?" << endl;
-		cout << "1. Edit Deposition " << endl;
-		cout << "  2. Cancel Deposition" << endl;
+		cout << " 1. Edit Deposition " << endl;
+		cout << " 2. Cancel Deposition" << endl;
 		cout << " 3. Reschedule Deopsition" << endl;
 		cin >> helpTopic;
 
-
+                // The communication class should take the right firm information and email them regarding the issue
 		for (int i = 0; i <= helpTopic; i++) {
 			if (helpTopic == i) {
 				switch (helpTopic) {
 				case 1:
-					cout << "The editing team will reach out to you regarding your recent concern" << endl;
-					rstaff = staff1;
+					// info that the comunication class will use to route the issue to the right firm
+						eID="edit@deposition.com";
+					cout << "The editing team will reach out to you regarding your recent concern at : " <<eID<< endl;
 					break;
 				case 2:
-					cout << "The Cancelation team will reach out to you regarding your recent concern" << endl;
-					rstaff = staff2;
+					eID = "cancel@deposition.com";
+					cout << "The Cancelation team will reach out to you regarding your recent concern at :" << eID << endl;
 					break;
 				case 3:
-					cout << "The Rescheduling team will reach out to you regarding your recent concern" << endl;
-					rstaff = staff3;
+					eID = "postp@deposition.com";
+					cout << "The Rescheduling team will reach out to you regarding your recent concern at :"<<eID << endl;
 					break;
 
 
