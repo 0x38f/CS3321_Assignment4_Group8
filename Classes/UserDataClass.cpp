@@ -16,95 +16,99 @@ class UserData {
 
 private:
 
-	string users;
-	//Retreives Users from database
-	void retrieve() {
+    string users;
+    //Retreives Users from database
+    void retrieve() {
 
-		Database db;
+        Database db;
 
-		db.setUsersPrint();
+        db.setUsersPrint();
 
-		db.getUsersPrint();
-		db.getStaffPrint();
-		db.setStaffPrint();
-	}
-
+        db.getUsersPrint();
+        db.getStaffPrint();
+        db.setStaffPrint();
 
 
-	//Saves updated depositions	to database
-	void update(vector<string> users) {
-
-		for (int i = 0; i < unsigned(users.size()); i++) {
-			for (int j = 0; j < unsigned(users[i].size()); j++) {
-				cout << users[i][j] << " ";
-				cout << endl;
-			}
-		}
-	}
-
-	//Allows modifications to saved depositions
-	void append(vector<string> users) {
-		Database db;
-		db.getUsers();
-		vector<string> usersNew;
-
-		for(int i = 0; i < usersNew.size(); i++) {
-			users.swap(usersNew);
-			usersNew.clear();
-		}
+    }
+    Database db;
+    vector<string> users = db.getUsersPrint();
 
 
-	}
+    //Saves updated depositions	to database
+    void update(vector<string> users) {
+
+        for (int i = 0; i < unsigned(users.size()); i++) {
+            for (int j = 0; j < unsigned(users[i].size()); j++) {
+                cout << users[i][j] << " ";
+                cout << endl;
+            }
+        }
+    }
+
+    //Allows modifications to saved depositions
+    void append(vector<string> users) {
+        Database db;
+        db.getUsersPrint();
+        vector<string> usersNew;
+
+        for (int i = 0; i < usersNew.size(); i++) {
+            users.swap(usersNew);
+            usersNew.clear();
+        }
 
 
-	void userStaff() {
-		Database db;
-		db.getStaffPrint();
+    }
 
-		for (int i = 0; i < db.getStaffPrint.size(); i++) {
-			cout << db.getStaffPrint.front();
-		}
 
-	   }
+    void userStaff(vector<string> staff) {
+        Database db;
+        db.getStaffPrint();
 
-	void userData() {
-		Database db;
-		Registration registration;
-		while (registration.getRegisterAccount()) {
-			db.getupdateNewUser();
+        for (int i = 0; i < staff.size(); i++) {
+            cout << staff.front();
+        }
 
-		}
-	}
+    }
+
+   string userData() {
+        Registration registration;
+        registration.getRegisterAccount();
+        ifstream myfile("newaccountfile.txt");
+
+        for (int i = 0; i >= myfile.eof();  i++) {
+            cout << i << endl;
+        }
+    }
 
 public:
 
-	//setters and getters
-	void setUserStaff(string u) {
-		users = u;
-	}
+    //setters and getters
+    void setUserStaff(string u) {
+        users = u;
+    }
 
-	void setUpdate(string d) {
-		users = d;
-	}
+    void setUpdate(string d) {
+        users = d;
+    }
 
-	void setAppend(string a) {
-		users = a;
-	}
-	void setUserData(string u) {
-		users = u;
-	}
+    void setAppend(string a) {
+        users = a;
+    }
+    void setUserData(string u) {
+        users = u;
+    }
 
-	string getUpdate() {
-		return users;
-	}
+    string getUpdate() {
+        return users;
+    }
 
-	string getAppend() {
-		return users;
-	}
-	string getUserStaff() {
-		return users;
-	}
-	string getUserData() {
-		return users;
-	}
+    string getAppend() {
+        return users;
+    }
+    string getUserStaff() {
+        return users;
+    }
+    string getUserData() {
+        return users;
+    }
 };
