@@ -23,8 +23,6 @@ private:
         ifstream searchDepoFile;
         string line;
 
-        searchDepoFile = searchDatabase.getUpdateSchedule;
-
         searchDepoFile.open("searchDepo.txt", ios_base::app);
 
         if (searchDepoFile.is_open()) {
@@ -47,8 +45,6 @@ private:
         ifstream searchRoomFile;
         string line;
 
-        searchRoomFile = searchDatabase.getUpdateSchedule;
-
         searchRoomFile.open("searchRoom.txt", ios_base::app);
 
         if (searchRoomFile.is_open()) {
@@ -69,8 +65,6 @@ private:
 
         ifstream searchStaffFile;
         string line;
-
-        searchStaffFile = searchDatabase.getUpdateSchedule;
 
         searchStaffFile.open("searchRoom.txt", ios_base::app);
 
