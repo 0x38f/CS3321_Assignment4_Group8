@@ -1,3 +1,5 @@
+/*
+
 #include "Classes/UserInterfaceClass.cpp"
 #include "Classes/RegisterClass.cpp"
 
@@ -56,3 +58,5 @@ int main () {
     string comm = Communication.getEmail();
     cout << comm;
 }
+
+*/
