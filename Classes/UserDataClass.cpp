@@ -11,32 +11,23 @@ Staff, Firms, and Depositions in the database. It does this by taking the inform
 using namespace std;
 
 class UserData {
-
-
+  Database db;
+  Registration registration;
 
 private:
-
-    string users;
+    string user;
     //Retreives Users from database
     void retrieve() {
-
-        Database db;
-
+        Base db;
         db.setUsersPrint();
-
         db.getUsersPrint();
         db.getStaffPrint();
         db.setStaffPrint();
-
-
     }
-    Database db;
+
     vector<string> users = db.getUsersPrint();
-
-
     //Saves updated depositions	to database
     void update(vector<string> users) {
-
         for (int i = 0; i < unsigned(users.size()); i++) {
             for (int j = 0; j < unsigned(users[i].size()); j++) {
                 cout << users[i][j] << " ";
@@ -44,71 +35,60 @@ private:
             }
         }
     }
-
     //Allows modifications to saved depositions
     void append(vector<string> users) {
-        Database db;
+
         db.getUsersPrint();
         vector<string> usersNew;
-
         for (int i = 0; i < usersNew.size(); i++) {
             users.swap(usersNew);
             usersNew.clear();
         }
-
-
     }
-
-
     void userStaff(vector<string> staff) {
-        Database db;
+        
         db.getStaffPrint();
-
         for (int i = 0; i < staff.size(); i++) {
             cout << staff.front();
         }
-
     }
+    string userData() {
 
-   string userData() {
-        Registration registration;
         registration.getRegisterAccount();
         ifstream myfile("newaccountfile.txt");
-
-        for (int i = 0; i >= myfile.eof();  i++) {
+        for (int i = 0; i >= myfile.eof(); i++) {
             cout << i << endl;
         }
     }
-
 public:
 
     //setters and getters
     void setUserStaff(string u) {
-        users = u;
+       string users = u;
     }
-
     void setUpdate(string d) {
-        users = d;
+        string users = d;
     }
-
     void setAppend(string a) {
-        users = a;
+        string users = a;
     }
     void setUserData(string u) {
-        users = u;
+        string users = u;
     }
-
     string getUpdate() {
+        string users;
         return users;
     }
-
     string getAppend() {
+        string users;
         return users;
     }
     string getUserStaff() {
+        string users;
         return users;
     }
     string getUserData() {
+        string users;
         return users;
     }
 };

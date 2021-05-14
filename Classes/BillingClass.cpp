@@ -10,65 +10,54 @@ to build the invoice*/
 using namespace std;
 
 class Billing {
-
 private:
-    Database BillingDatabase;
 
-    float totalPrice, hoursReserved, hoursScheduled, firmRate, tax, subtotalPrice;
+
+    float hoursReserved() {
+
+        Schedule schedule;
+        int hR = schedule.getTime();
+    }
 
     float subtotal() {
-        firmRate = 100;
-        subtotalPrice = firmRate * hoursReserved;
+
+        float firmRate = 100;
+        float subtotalPrice = firmRate * hoursReserved();
         return subtotalPrice;
     }
-
     float taxes() {
-        tax = subtotal() * 0.0825;
+        float tax = subtotal() * 0.0825;
         return tax;
     }
-
     float total() {
-
-        totalPrice = taxes() + subtotal();
-
+        float totalPrice = taxes() + subtotal();
         return totalPrice;
-
     }
-
 public:
 
-    void setHoursReserved(float hR){
-        hoursReserved = hR;
+    void setHoursReserved(float hR) {
+       float hoursReserved = hR;
     }
-
     void setTotal(float t) {
-        totalPrice = t;
+        float totalPrice = t;
     }
     void setTaxes(float ta) {
-        tax = ta;
+       float tax = ta;
     }
-
     void setSubtotal(float sub) {
-
-        subtotalPrice = sub;
-
+       float subtotalPrice = sub;
     }
-
     float getHoursReserved() {
-        return hoursReserved;
+        float hoursReserved();
+        return hoursReserved();
     }
-
     float getTaxes() {
         return taxes();
     }
-
     float getSubtotal() {
         return subtotal();
     }
-
     float getTotal() {
-
-	 return total();
+        return total();
     }
-
 };

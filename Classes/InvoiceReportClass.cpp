@@ -8,7 +8,14 @@ using namespace std;
 
 class InvoiceReport {
 
-	string getPrintReport(string printReport) {
-		return printReport;
-	}
+    Invoice invoice;
+
+    void setPrintReport(string printReport) {
+        string report = printReport;
+    }
+
+    string getPrintReport() {
+        string report = invoice.getBuild();
+        return report;
+    }
 };
